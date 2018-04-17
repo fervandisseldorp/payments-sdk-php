@@ -9,7 +9,7 @@
 namespace CMPayments\PaymentSdk\Requests;
 
 
-class MerchantRequest
+class MerchantRequest implements RequestInterface
 {
     const ENDPOINT = 'merchants/v1';
 
