@@ -27,9 +27,9 @@ class IdealPayment extends Payment
      * @param string $purchaseId
      * @param string $description
      */
-    public function __construct(Money $money, $issuers, $purchaseId, $description)
+    public function __construct($chargeId, Money $money, $issuers, $purchaseId, $description)
     {
-        parent::__construct($money, 'iDEAL', $purchaseId);
+        parent::__construct($chargeId, $money, 'iDEAL', $purchaseId);
 
         $this->issuerId = $issuers;
         $this->description = $description;

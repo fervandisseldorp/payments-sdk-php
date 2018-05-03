@@ -24,9 +24,9 @@ class BancontactPayment extends Payment
      * @param string $purchaseId
      * @param \DateTime $expiryDate
      */
-    public function __construct(Money $money, $purchaseId, \DateTime $expiryDate = null)
+    public function __construct($chargeId, Money $money, $purchaseId, \DateTime $expiryDate = null)
     {
-        parent::__construct($money, 'Bancontact', $purchaseId);
+        parent::__construct($chargeId, $money, 'Bancontact', $purchaseId);
 
         $this->dueDate = $expiryDate;
     }

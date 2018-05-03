@@ -41,9 +41,9 @@ class SofortPayment extends Payment
      * @param string $name
      * @param string $description
      */
-    public function __construct(Money $money, $purchaseId, $bic, $iban, $name, $description)
+    public function __construct($chargeId, Money $money, $purchaseId, $bic, $iban, $name, $description)
     {
-        parent::__construct($money, 'SOFORT', $purchaseId);
+        parent::__construct($chargeId, $money, 'SOFORT', $purchaseId);
 
         $this->description = $description;
         $this->bic = $bic;
