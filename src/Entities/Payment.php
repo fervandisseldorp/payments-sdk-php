@@ -12,6 +12,7 @@ use Money\Money;
  */
 class Payment
 {
+    private $chargeId;
     /**
      * @var Money
      */
@@ -52,8 +53,9 @@ class Payment
      * @param string $method
      * @param string $purchaseId
      */
-    public function __construct(Money $money, $method, $purchaseId)
+    public function __construct($chargeId = null, Money $money, $method, $purchaseId)
     {
+        $this->chargeId = $chargeId;
         $this->money = $money;
         $this->method = $method;
         $this->purchaseId = $purchaseId;

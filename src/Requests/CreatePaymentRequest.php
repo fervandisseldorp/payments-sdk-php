@@ -10,6 +10,7 @@ namespace CMPayments\PaymentSdk\Requests;
 
 
 use CMPayments\PaymentSdk\Entities\Payment;
+use CMPayments\PaymentSdk\Gateway;
 
 class CreatePaymentRequest implements RequestInterface
 {

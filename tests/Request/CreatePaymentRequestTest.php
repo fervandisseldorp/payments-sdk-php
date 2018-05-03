@@ -17,7 +17,7 @@ class CreatePaymentRequestTest extends \PHPUnit_Framework_TestCase
     private function getPayment($money)
     {
         // Should add chargeID to the implementation whenever anyone has time. We'll see.
-        return new Payment( $money, 'test', '12345' );
+        return new Payment( 'testch123', $money, 'test', '12345' );
     }
 
     public function testGetEndpoint()
