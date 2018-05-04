@@ -68,11 +68,7 @@ class CreatePaymentRequest implements RequestInterface
         $array = [
             'charge_id'     => $this->chargeID
         ];
-
         $paymentArray = $this->payment->toArray();
-
-        array_push($array, $paymentArray );
-
-        return $array;
+        return array_merge($array, $paymentArray);
     }
 }
