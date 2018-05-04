@@ -18,20 +18,24 @@ class CreatePaymentRequest implements RequestInterface
      * Default endpoint (Uri in Guzzle context)
      */
     const ENDPOINT = 'payments/v1';
+
     /**
-     * @var Charge
+     * @var chargeID
+     */
+    private $chargeID;
+    /**
+     * @var payment
      */
     private $payment;
 
     /**
-     * CreateChargeRequest constructor.
+     * CreatePaymentRequest constructor.
      */
     public function __construct($chargeID, Payment $payment)
     {
         $this->chargeID = $chargeID;
         $this->payment = $payment;
     }
-
 
     /**
      * Return the uri
@@ -61,6 +65,14 @@ class CreatePaymentRequest implements RequestInterface
      */
     public function getPayload()
     {
-        return $this->payment->toArray();
+        $array = [
+            'charge_id'     => $this->chargeID
+        ];
+
+        $paymentArray = $this->payment->toArray();
+
+        array_push($array, $paymentArray );
+
+        return $array;
     }
 }
