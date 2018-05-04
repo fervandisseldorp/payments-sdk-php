@@ -19,6 +19,7 @@ class PaymentTest extends \PHPUnit_Framework_TestCase
 
         $payload = $payment->toArray();
 
+        $this->assertEquals('ch-33687d68-056a-4084-ac3b-53c6e78d', $payload['charge_id']);
         $this->assertEquals('https://success.url', $payload['payment_details']['success_url']);
         $this->assertEquals('https://failed.url', $payload['payment_details']['failed_url']);
         $this->assertEquals('https://cancelled.url', $payload['payment_details']['cancelled_url']);

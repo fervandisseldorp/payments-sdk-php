@@ -26,9 +26,9 @@ class PaypalPayment extends Payment
      * @param string $purchaseId
      * @param string $description
      */
-    public function __construct($chargeId, Money $money, $purchaseId, $description)
+    public function __construct(Money $money, $purchaseId, $description)
     {
-        parent::__construct($chargeId, $money, 'PayPal', $purchaseId);
+        parent::__construct($money, 'PayPal', $purchaseId);
 
         $this->description = $description;
     }

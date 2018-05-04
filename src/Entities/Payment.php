@@ -12,7 +12,6 @@ use Money\Money;
  */
 class Payment
 {
-    private $chargeId;
     /**
      * @var Money
      */
@@ -49,6 +48,7 @@ class Payment
 
     /**
      * Payment constructor.
+     * @param string $chargeId
      * @param Money $money
      * @param string $method
      * @param string $purchaseId
@@ -119,6 +119,7 @@ class Payment
     public function toArray()
     {
         $array = [
+            // 'charge_id'       => $this->chargeId,
             'amount'          => (new MoneyConverter())->toFloat($this->money),
             'currency'        => $this->money->getCurrency(),
             'payment_method'  => $this->method,

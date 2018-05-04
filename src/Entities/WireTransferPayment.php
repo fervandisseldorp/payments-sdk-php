@@ -24,9 +24,9 @@ class WireTransferPayment extends Payment
      * @param string $purchaseId
      * @param \DateTime $expiryDate
      */
-    public function __construct($chargeId, Money $money, $purchaseId, \DateTime $expiryDate = null)
+    public function __construct(Money $money, $purchaseId, \DateTime $expiryDate = null)
     {
-        parent::__construct($chargeId, $money, 'WireTransfer', $purchaseId);
+        parent::__construct($money, 'WireTransfer', $purchaseId);
 
         $this->expiryDate = $expiryDate;
     }

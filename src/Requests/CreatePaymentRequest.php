@@ -26,8 +26,9 @@ class CreatePaymentRequest implements RequestInterface
     /**
      * CreateChargeRequest constructor.
      */
-    public function __construct(Payment $payment)
+    public function __construct($chargeID, Payment $payment)
     {
+        $this->chargeID = $chargeID;
         $this->payment = $payment;
     }
 
