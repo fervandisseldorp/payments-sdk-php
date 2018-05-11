@@ -9,23 +9,25 @@
 namespace CMPayments\PaymentSdk\Test\Request;
 
 
+use CMPayments\PaymentSdk\Requests\MerchantRequest;
+
 class MerchantRequestTest extends \PHPUnit_Framework_TestCase
 {
     public function testGetEndpoint()
     {
-        $r = new PaymentMethodsRequest();
-        $this->assertEquals('merchants/v1', $r->getEndpoint());
+        $r = new MerchantRequest('ch-12345');
+        $this->assertEquals('charges/v1/ch-12345/merchant', $r->getEndpoint());
     }
 
     public function testGetRequestMethod()
     {
-        $r = new PaymentMethodsRequest();
+        $r = new MerchantRequest();
         $this->assertEquals('GET', $r->getRequestMethod());
     }
 
     public function testGetPayload()
     {
-        $r = new PaymentMethodsRequest();
+        $r = new MerchantRequest();
         $this->assertEquals(null, $r->getPayload());
     }
 }

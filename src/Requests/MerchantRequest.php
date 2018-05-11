@@ -8,14 +8,19 @@
 
 namespace CMPayments\PaymentSdk\Requests;
 
-
+// Not sure if this request should be available for everyone to use.
 class MerchantRequest implements RequestInterface
 {
-    const ENDPOINT = 'merchants/v1';
+    private $charge_id;
+
+    public function __construct($chargeId)
+    {
+        $this->chargeId = $chargeId;
+    }
 
     public function getEndpoint()
     {
-        return self::ENDPOINT;
+        return 'charges/v1/ ' . $this->charge_id . '/merchant';
     }
 
     public function getRequestMethod()
