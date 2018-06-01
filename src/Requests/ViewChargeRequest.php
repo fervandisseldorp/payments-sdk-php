@@ -22,7 +22,6 @@ class ViewChargeRequest implements RequestInterface
         $this->chargeId = $chargeId;
     }
 
-
     /**
      * Get the Guzzle uri
      *
