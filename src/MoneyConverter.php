@@ -47,7 +47,7 @@ class MoneyConverter
      * @param Money $money
      * @return float
      */
-    public function toFloat(Money $money)
+    public function toFloat(Money $money): float
     {
         $decimalFactor = $this->getDecimalFactor($money->getCurrency());
         return $money->getAmount() / $decimalFactor;
