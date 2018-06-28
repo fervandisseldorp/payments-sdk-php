@@ -23,6 +23,15 @@ class Charge
     private $payments;
 
     /**
+     * @var description: string
+     */
+    private $description;
+
+    /**
+     * @var purchase_id: string
+     */
+    private $purchase_id;
+    /**
      * Charge constructor.
      *
      * @param Money $money
