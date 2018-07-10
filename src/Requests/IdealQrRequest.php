@@ -14,7 +14,7 @@ use CMPayments\PaymentSdk\Gateway;
 
 class IdealQrRequest implements RequestInterface
 {
-    const ENDPOINT = 'charges/v1';
+    const ENDPOINT = 'qr/v1';
 
     private $qrCode;
 
