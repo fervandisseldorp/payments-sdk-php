@@ -53,7 +53,7 @@ class QrCode
      */
     private $size;
 
-    public function __construct(Money $money, bool $amount_changeable, string $description, bool $one_off, string $beneficiary, string $purchase_id, \DateTime $expiration, integer $size)
+    public function __construct(Money $money, bool $amount_changeable, string $description, bool $one_off, string $beneficiary, string $purchase_id, \DateTime $expiration, int $size)
     {
         $this->money = $money;
         $this->amount_changeable -> $amount_changeable;
