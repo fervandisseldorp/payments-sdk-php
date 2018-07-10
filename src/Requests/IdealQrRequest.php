@@ -9,23 +9,36 @@
 namespace CMPayments\PaymentSdk\Requests;
 
 
+use CMPayments\PaymentSdk\Entities\QrCode;
+use CMPayments\PaymentSdk\Gateway;
+
 class IdealQrRequest
 {
+    const ENDPOINT = 'charges/v1';
+
+    private $qrCode;
+
+
     /** @inheritdoc */
     public function getEndpoint()
     {
-        return 'qr/v1';
+        return self::ENDPOINT;
+    }
+
+    public function __construct(QrCode $qrCode)
+    {
+        $this->qrCode = $qrCode;
     }
 
     /** @inheritdoc */
-    public function getRequestMethod()
+    public function getRequestMethod(): string
     {
-        return 'GET';
+        return Gateway::REQUEST_METHOD_POST;
     }
 
     /** @inheritdoc */
-    public function getPayload()
+    public function getPayload(): array
     {
-        return null;
+        return $this->qrCode->toArray();
     }
 }
