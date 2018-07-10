@@ -9,7 +9,7 @@
 namespace CMPayments\PaymentSdk\Requests;
 
 
-class IdealQrStatusRequest
+class IdealQrStatusRequest implements RequestInterface
 {
     private $qrId;
 

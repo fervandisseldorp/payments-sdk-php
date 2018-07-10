@@ -12,7 +12,7 @@ namespace CMPayments\PaymentSdk\Requests;
 use CMPayments\PaymentSdk\Entities\QrCode;
 use CMPayments\PaymentSdk\Gateway;
 
-class IdealQrRequest
+class IdealQrRequest implements RequestInterface
 {
     const ENDPOINT = 'charges/v1';
 
