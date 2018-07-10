@@ -78,9 +78,22 @@ class QrCode
             'one_off' => $this->one_off,
             'beneficiary' => $this->beneficiary,
             'purchase_id' => $this->purchase_id,
-            'expiration' => $this->expiration,
+            'expiration' => $this->expiration->format('Y-M-d H:i'),
             'size' => $this->size
         ];
+    }
+
+    public function __toString()
+    {
+        return
+            'Amount: ' . $this->money->getAmount() .
+            ' Changeable: ' . $this->amount_changeable .
+            ' Description: ' . $this->description .
+            ' One off: ' . $this->one_off .
+            ' Beneficiary: ' . $this->beneficiary .
+            ' Purchase id: ' . $this->purchase_id .
+            ' Expiration: ' . $this->expiration->format('Y-M-d H:i') .
+            ' Size: ' . $this->size;
     }
 
 }
