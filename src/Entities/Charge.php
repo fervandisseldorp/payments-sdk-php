@@ -37,10 +37,12 @@ class Charge
      * @param Money $money
      * @param array|null $payments
      */
-    public function __construct(Money $money, array $payments = null)
+    public function __construct(Money $money, array $payments = null, string $description = null, string $purchase_id = null)
     {
         $this->money = $money;
         $this->payments = $payments ? $payments : [];
+        $this->description = $description;
+        $this->purchase_id = $purchase_id;
     }
 
     /**
@@ -60,12 +62,25 @@ class Charge
      */
     public function toArray()
     {
-        return [
-            'amount'   => (new MoneyConverter())->toFloat($this->money),
-            'currency' => $this->money->getCurrency(),
-            'payments' => array_map(function (Payment $p) {
-                return $p->toArray();
-            }, $this->payments),
-        ];
+        if($this->description != null && $this->purchase_id != null){
+            return [
+                'amount'   => (new MoneyConverter())->toFloat($this->money),
+                'currency' => $this->money->getCurrency(),
+                'payments' => array_map(function (Payment $p) {
+                    return $p->toArray();
+                }, $this->payments),
+                'description' => $this->description,
+                'purchase_id' => $this->purchase_id
+            ];
+        }
+        else {
+            return [
+                'amount'   => (new MoneyConverter())->toFloat($this->money),
+                'currency' => $this->money->getCurrency(),
+                'payments' => array_map(function (Payment $p) {
+                    return $p->toArray();
+                }, $this->payments),
+            ];
+        }
     }
 }
